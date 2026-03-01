@@ -4,12 +4,13 @@ This is my Final-Year Academic Project, A Blockchain-Based Agri-Food Traceabilit
 ## Project Overview
 - This system enables end-to-end traceability of agricultural products across the supply chain:
 ### Seed → Farmer → Grain Elevator → Processor → Retailer → Consumer
-- The application integrates:
-### Blockchain-based transaction logging
-### Smart contract deployment
-### Decentralized file storage (IPFS)
-### QR code-based product tracking
-### Full-stack web application (React + Flask)
+
+## The application integrates:
+- Blockchain-based transaction logging,
+- Smart contract deployment,
+- Decentralized file storage (IPFS),
+- QR code-based product tracking,
+- Full-stack web application (React + Flask)
 
 ## System Architecture
 React Frontend -> Flask REST API (Python) -> MySQL Database -> Blockchain (BSC Testnet) -> IPFS (File Storage)
@@ -71,26 +72,6 @@ React Frontend -> Flask REST API (Python) -> MySQL Database -> Blockchain (BSC T
 2. Approve users
 3. Role-based functionality
 4. Blockchain address integration
-
-## Project Structure:
-
-Agri-Food-Traceability-System/
-│
-├── public/                  # React public assets
-├── src/
-│   └── foodsupply/
-│       ├── *.jsx            # React components
-│       ├── food.py          # Flask backend API
-│       ├── contract.py      # Smart contract deployment logic
-│       ├── transaction.py   # BNB transaction handling
-│       ├── SimpleStorage.sol
-│       ├── database.sql
-│       └── static/          # Uploads, downloads, QR codes
-│
-├── package.json
-├── package-lock.json
-└── .gitignore
-
 
 ## Installation & Setup:
 ### 1. Clone Repository:
