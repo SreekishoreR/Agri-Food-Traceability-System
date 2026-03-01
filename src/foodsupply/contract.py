@@ -1,8 +1,10 @@
+import os
+import mysql.connector
 from web3 import Web3
 from web3.middleware import geth_poa_middleware
 from solcx import compile_standard, install_solc
-
 from datetime import datetime
+
 def s():
     from solcx import compile_standard, install_solc
     import json
@@ -55,8 +57,10 @@ def s():
     w3 = Web3(Web3.HTTPProvider(bsc_testnet_rpc_url))
     #web3.middleware_stack.inject(geth_poa_middleware, layer=0)
     w3.middleware_onion.inject(geth_poa_middleware, layer=0)
-    my_address = '0x7397aD1017054c1544083CaC010B3AD314a8c041'
-    private_key ='0xc26938a2c56a4b7d4f4ac083104c441d550695e07f5b07cf4c9e45f5117dabac'
+    my_address = os.getenv("BLOCKCHAIN_ADDRESS")
+    private_key = os.getenv("PRIVATE_KEY")
+    if not my_address or not private_key:
+        raise ValueError("BLOCKCHAIN_ADDRESS or PRIVATE_KEY not set in environment variables")
     # initialize contract
     SimpleStorage = w3.eth.contract(abi=abi, bytecode=bytecode)
     nonce = w3.eth.get_transaction_count(my_address)
@@ -95,5 +99,5 @@ INSERT INTO transaction_receipts (
     print("Transacation completed")
     # Connect to MySQL
 
-
-s()
+if __name__ == "__main__":
+    s()
